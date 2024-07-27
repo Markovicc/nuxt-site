@@ -32,6 +32,14 @@ export default defineNuxtConfig({
     '@nuxtjs/strapi'
   ],
 
+  bootstrapVue: {
+
+    bootstrapCSS: false,
+
+  },
+
+
+
   carousel: {
     prefix: 'MyPrefix'
   },
