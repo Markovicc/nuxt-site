@@ -35,6 +35,7 @@ export default defineNuxtConfig({
   bootstrapVue: {
 
     bootstrapCSS: false,
+    bootstrapVue: false,
 
   },
 
