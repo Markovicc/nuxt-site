@@ -32,12 +32,11 @@ export default defineNuxtConfig({
     '@nuxtjs/strapi'
   ],
 
-  bootstrapVue: {
-
-    bootstrapCSS: false,
-    bootstrapVueCSS: false,
-
+  experimental: {
+    inlineSSRStyles: id => !id?.includes('entry')
   },
+
+  
 
 
 
