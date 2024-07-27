@@ -1,0 +1,385 @@
+<template>
+  <div class="products-details-area ptb-100">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-5 col-md-12">
+          <div class="products-details-image">
+            <img src="~/assets/images/products/products2.jpg" alt="image" />
+          </div>
+        </div>
+
+        <div class="col-lg-7 col-md-12">
+          <div class="products-details-desc">
+            <h3>Motivational Book Cover</h3>
+
+            <div class="price">
+              <span class="new-price">$200</span>
+              <span class="old-price">$210</span>
+            </div>
+
+            <div class="products-review">
+              <div class="rating">
+                <i class="bx bxs-star"></i>
+                <i class="bx bxs-star"></i>
+                <i class="bx bxs-star"></i>
+                <i class="bx bxs-star"></i>
+                <i class="bx bxs-star-half"></i>
+              </div>
+              <a href="#" class="rating-count">3 reviews</a>
+            </div>
+
+            <p>
+              Santiago who travels from his homeland in Spain to the Egyptian
+              desert in search of a treasure buried near the Pyramids. Lorem
+              ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor
+              incididunt ut labore et. Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit, sed do eiusmod tempor incididunt et.
+            </p>
+
+            <div class="products-meta">
+              <span>SKU: <span class="sku">10</span></span>
+              <span>Availability: <span class="in-stock">In Stock</span></span>
+              <span>Category: <a href="#">Business</a></span>
+              <span>Tag: <a href="#">Book</a></span>
+            </div>
+
+            <div class="products-add-to-cart">
+              <div class="input-counter">
+                <form>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="number"
+                    aria-describedby="number"
+                    placeholder="0"
+                  />
+                </form>
+              </div>
+              <button type="submit" class="default-btn">
+                <i class="flaticon-user"></i>Add to Cart<span></span>
+              </button>
+            </div>
+
+            <div class="products-share">
+              <ul class="social">
+                <li><span>Share:</span></li>
+                <li>
+                  <a href="#" class="facebook" target="_blank"
+                    ><i class="bx bxl-facebook"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" class="twitter" target="_blank"
+                    ><i class="bx bxl-twitter"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" class="linkedin" target="_blank"
+                    ><i class="bx bxl-linkedin"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" class="instagram" target="_blank"
+                    ><i class="bx bxl-instagram"></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-12 col-md-12">
+          <div class="products-details-tab">
+            <div class="tab_content">
+              <b-tabs content-class="mt-3">
+                <b-tab title="Description">
+                  <div class="tabs_item">
+                    <p>
+                      This story, dazzling in its powerful simplicity and
+                      soul-stirring wisdom, is about an Andalusian shepherd boy
+                      named Santiago who travels from his homeland in Spain to
+                      the Egyptian desert in search of a treasure buried near
+                      the Pyramids. Lorem ipsum dolor sit.
+                    </p>
+                    <ul>
+                      <li>Instant WideCademy bestseller</li>
+                      <li>Translated into 18 languages</li>
+                      <li>#1 Most Recommended Book of the year.</li>
+                      <li>
+                        A neglected project, widely dismissed, its champion
+                        written off as unhinged.
+                      </li>
+                      <li>
+                        Yields a negative result in an experiment because of a
+                        flaw in the design of the experiment.
+                      </li>
+                      <li>
+                        An Amazon, Bloomberg, Financial Times, Forbes, Inc.,
+                        Newsweek, Strategy + Business, Tech Crunch, Washington
+                        Post Best Business Book of the year
+                      </li>
+                    </ul>
+                  </div>
+                </b-tab>
+
+                <b-tab title="Reviews (2)">
+                  <div class="tabs_item">
+                    <div class="products-reviews">
+                      <h3>Course Rating</h3>
+                      <div class="rating">
+                        <span class="bx bxs-star checked"></span>
+                        <span class="bx bxs-star checked"></span>
+                        <span class="bx bxs-star checked"></span>
+                        <span class="bx bxs-star checked"></span>
+                        <span class="bx bxs-star"></span>
+                      </div>
+                      <div class="rating-count">
+                        <span>4.1 average based on 4 reviews.</span>
+                      </div>
+                      <div class="row">
+                        <div class="side">
+                          <div>5 star</div>
+                        </div>
+                        <div class="middle">
+                          <div class="bar-container">
+                            <div class="bar-5"></div>
+                          </div>
+                        </div>
+                        <div class="side right">
+                          <div>02</div>
+                        </div>
+                        <div class="side">
+                          <div>4 star</div>
+                        </div>
+                        <div class="middle">
+                          <div class="bar-container">
+                            <div class="bar-4"></div>
+                          </div>
+                        </div>
+                        <div class="side right">
+                          <div>03</div>
+                        </div>
+                        <div class="side">
+                          <div>3 star</div>
+                        </div>
+                        <div class="middle">
+                          <div class="bar-container">
+                            <div class="bar-3"></div>
+                          </div>
+                        </div>
+                        <div class="side right">
+                          <div>04</div>
+                        </div>
+                        <div class="side">
+                          <div>2 star</div>
+                        </div>
+                        <div class="middle">
+                          <div class="bar-container">
+                            <div class="bar-2"></div>
+                          </div>
+                        </div>
+                        <div class="side right">
+                          <div>05</div>
+                        </div>
+                        <div class="side">
+                          <div>1 star</div>
+                        </div>
+                        <div class="middle">
+                          <div class="bar-container">
+                            <div class="bar-1"></div>
+                          </div>
+                        </div>
+                        <div class="side right">
+                          <div>00</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="products-review-comments">
+                      <h3>3 Reviews</h3>
+                      <div class="user-review">
+                        <img src="~/assets/images/user1.jpg" alt="image" />
+
+                        <div class="review-rating">
+                          <div class="review-stars">
+                            <i class="bx bxs-star checked"></i>
+                            <i class="bx bxs-star checked"></i>
+                            <i class="bx bxs-star checked"></i>
+                            <i class="bx bxs-star checked"></i>
+                            <i class="bx bxs-star checked"></i>
+                          </div>
+
+                          <span class="d-inline-block">James Anderson</span>
+                        </div>
+
+                        <span class="d-block sub-comment">Excellent</span>
+                        <p>
+                          Very well built theme, couldn't be happier with it.
+                          Can't wait for future updates to see what else they
+                          add in.
+                        </p>
+                      </div>
+                      <div class="user-review">
+                        <img src="~/assets/images/user2.jpg" alt="image" />
+                        <div class="review-rating">
+                          <div class="review-stars">
+                            <i class="bx bxs-star checked"></i>
+                            <i class="bx bxs-star checked"></i>
+                            <i class="bx bxs-star checked"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                          </div>
+
+                          <span class="d-inline-block">Sarah Taylor</span>
+                        </div>
+                        <span class="d-block sub-comment">Video Quality!</span>
+                        <p>
+                          Was really easy to implement and they quickly answer
+                          my additional questions!
+                        </p>
+                      </div>
+                      <div class="user-review">
+                        <img src="~/assets/images/user3.jpg" alt="image" />
+                        <div class="review-rating">
+                          <div class="review-stars">
+                            <i class="bx bxs-star checked"></i>
+                            <i class="bx bxs-star checked"></i>
+                            <i class="bx bxs-star checked"></i>
+                            <i class="bx bxs-star checked"></i>
+                            <i class="bx bxs-star checked"></i>
+                          </div>
+                          <span class="d-inline-block">David Warner</span>
+                        </div>
+                        <span class="d-block sub-comment">Perfect Coding!</span>
+                        <p>
+                          Stunning design, very dedicated crew who welcome new
+                          ideas suggested by customers, nice support.
+                        </p>
+                      </div>
+                      <div class="user-review">
+                        <img src="~/assets/images/user4.jpg" alt="image" />
+                        <div class="review-rating">
+                          <div class="review-stars">
+                            <i class="bx bxs-star checked"></i>
+                            <i class="bx bxs-star checked"></i>
+                            <i class="bx bxs-star checked"></i>
+                            <i class="bx bxs-star checked"></i>
+                            <i class="bx bxs-star"></i>
+                          </div>
+                          <span class="d-inline-block">King Kong</span>
+                        </div>
+                        <span class="d-block sub-comment">Perfect Video!</span>
+                        <p>
+                          Stunning design, very dedicated crew who welcome new
+                          ideas suggested by customers, nice support.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="review-form-wrapper">
+                      <h3>Add a review</h3>
+                      <p class="comment-notes">
+                        Your email address will not be published. Required
+                        fields are marked <span>*</span>
+                      </p>
+
+                      <form>
+                        <div class="row">
+                          <div class="col-lg-12 col-md-12">
+                            <div class="rating">
+                              <input
+                                type="radio"
+                                id="star5"
+                                name="rating"
+                                value="5"
+                              /><label for="star5"></label>
+                              <input
+                                type="radio"
+                                id="star4"
+                                name="rating"
+                                value="4"
+                              /><label for="star4"></label>
+                              <input
+                                type="radio"
+                                id="star3"
+                                name="rating"
+                                value="3"
+                              /><label for="star3"></label>
+                              <input
+                                type="radio"
+                                id="star2"
+                                name="rating"
+                                value="2"
+                              /><label for="star2"></label>
+                              <input
+                                type="radio"
+                                id="star1"
+                                name="rating"
+                                value="1"
+                              /><label for="star1"></label>
+                            </div>
+                          </div>
+
+                          <div class="col-lg-6 col-md-6">
+                            <div class="form-group">
+                              <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Name *"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="col-lg-6 col-md-6">
+                            <div class="form-group">
+                              <input
+                                type="email"
+                                class="form-control"
+                                placeholder="Email *"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="col-lg-12 col-md-12">
+                            <div class="form-group">
+                              <textarea
+                                placeholder="Your review"
+                                class="form-control"
+                                cols="30"
+                                rows="6"
+                              ></textarea>
+                            </div>
+                          </div>
+
+                          <div class="col-lg-12 col-md-12">
+                            <p class="comment-form-cookies-consent">
+                              <input type="checkbox" id="test1" />
+                              <label for="test1">
+                                Save my name, email, and website in this browser
+                                for the next time I comment.</label
+                              >
+                            </p>
+                          </div>
+
+                          <div class="col-lg-12 col-md-12">
+                            <button type="submit">Submit</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </b-tab>
+              </b-tabs>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>   
+
+<script>
+export default {
+  name: "ProductsDetailsContent",
+};
+</script>

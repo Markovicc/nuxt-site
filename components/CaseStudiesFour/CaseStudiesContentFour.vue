@@ -1,0 +1,104 @@
+<template>
+    <div class="projects-area ptb-100">
+        <div class="container">
+            <div class="row m-0">
+                <div class="col-lg-4 col-md-6 p-0">
+                    <div class="single-projects-box mb-0 border">
+                        <div class="image">
+                            <img src="~/assets/images/projects/projects1.jpg" alt="image">
+
+                            <NuxtLink to="/case-studies-details-one" class="link-btn"><i class='bx bx-plus'></i></NuxtLink>
+                        </div>
+
+                        <div class="content">
+                            <h3><NuxtLink to="/case-studies-details-one">Movie Recommendation</NuxtLink></h3>
+                            <span>System Project</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 p-0">
+                    <div class="single-projects-box mb-0 border">
+                        <div class="image">
+                            <img src="~/assets/images/projects/projects2.jpg" alt="image">
+
+                            <NuxtLink to="/case-studies-details-one" class="link-btn"><i class='bx bx-plus'></i></NuxtLink>
+                        </div>
+
+                        <div class="content">
+                            <h3><NuxtLink to="/case-studies-details-one">Customer Segmentation</NuxtLink></h3>
+                            <span>Machine Learning</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 p-0">
+                    <div class="single-projects-box mb-0 border">
+                        <div class="image">
+                            <img src="~/assets/images/projects/projects3.jpg" alt="image">
+
+                            <NuxtLink to="/case-studies-details-one" class="link-btn"><i class='bx bx-plus'></i></NuxtLink>
+                        </div>
+
+                        <div class="content">
+                            <h3><NuxtLink to="/case-studies-details-one">Data Analysis</NuxtLink></h3>
+                            <span>Web Project</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 p-0">
+                    <div class="single-projects-box mb-0 border">
+                        <div class="image">
+                            <img src="~/assets/images/projects/projects4.jpg" alt="image">
+
+                            <NuxtLink to="/case-studies-details-one" class="link-btn"><i class='bx bx-plus'></i></NuxtLink>
+                        </div>
+
+                        <div class="content">
+                            <h3><NuxtLink to="/case-studies-details-one">Detection Project</NuxtLink></h3>
+                            <span>Programming</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 p-0">
+                    <div class="single-projects-box mb-0 border">
+                        <div class="image">
+                            <img src="~/assets/images/projects/projects5.jpg" alt="image">
+
+                            <NuxtLink to="/case-studies-details-one" class="link-btn"><i class='bx bx-plus'></i></NuxtLink>
+                        </div>
+
+                        <div class="content">
+                            <h3><NuxtLink to="/case-studies-details-one">Data Scientist</NuxtLink></h3>
+                            <span>Data Science</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 p-0">
+                    <div class="single-projects-box mb-0 border">
+                        <div class="image">
+                            <img src="~/assets/images/projects/projects6.jpg" alt="image">
+
+                            <NuxtLink to="/case-studies-details-one" class="link-btn"><i class='bx bx-plus'></i></NuxtLink>
+                        </div>
+
+                        <div class="content">
+                            <h3><NuxtLink to="/case-studies-details-one">Benefits Research</NuxtLink></h3>
+                            <span>Science Projects</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+
+export default {
+    name: 'CaseStudiesContentFour'
+}
+</script>
