@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 useHead({
-  title: "Parix - Nuxt.js Multipurpose IT Startup Template",
-  meta: [{ name: "description", content: "My amazing site." }],
+  title: "Karto: mape kroz priče | priče kroz mape",
+  meta: [{ name: "description", content: "Platforma za narative koji koriste podatke, infografike, interaktivne grafike i mape"}],
 });
 </script>

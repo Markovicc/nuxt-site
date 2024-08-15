@@ -1,20 +1,14 @@
 <template>
   <div>
     <Navbar />
+
     <DigitalMarketingAgencyMainBanner />
     <DigitalMarketingAgencyLatestValuableInsights />
-    <MachineLearningAlSolutionsDriveDigitalRevolution/>
-   
-    <!-- <DigitalMarketingAgencyAmazingBusinessSolution />
-    <DigitalMarketingAgencyPartner />
-    <DigitalMarketingAgencyOurFeaturedServices/> -->
+    <MachineLearningAlSolutionsDriveDigitalRevolution />
     <CommonCaseStudys />
-    <!-- <CommonOurDataScientist />
-    <CommonWhatOurClientsSaying />
-    <CommonPartner /> -->
-    <!-- <CommonLatestValuableInsights /> -->
-    <CommonWeLikeToStart />
+
     <Footer />
+
   </div>
 </template>
 

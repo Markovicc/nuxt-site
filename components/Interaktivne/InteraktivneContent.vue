@@ -4,10 +4,10 @@
             <div class="row align-items center">
 
 
-                <div class="col-lg-11  col-md-12  " v-for="post in posts">
+                <div class="col-lg-6  col-md-12  " v-for="post in posts.data">
                     <div class="single-blog-post bg-fffbf5">
                         <div class="post-image">
-                            <NuxtLink  to="/infografike">
+                            <NuxtLink  :to="`interaktivne-content/${post.slug}`">
                                 <img :src="`${post?.image}`" alt="image">
                             </NuxtLink>
                         </div>
@@ -21,26 +21,16 @@
                                     </div> -->
                                 </li>
                                 <li>
-                                    <i class='flaticon-calendar'></i> {{ new Date(post?.published).toLocaleDateString() }}
+                                    <i class='flaticon-calendar'></i> {{ formatPublishedDate(post?.published) }}
                                 </li>
                             </ul>
-                            <h3><NuxtLink to="/infografike">{{ post?.title }}</NuxtLink></h3>
+                            <h3><NuxtLink :to="`interaktivne-content/${post.slug}`">{{ post?.title }}</NuxtLink></h3>
                         </div>
                     </div>
                 </div>
 
                 
 
-                <div class="col-lg-12 col-md-12">
-                    <div class="pagination-area text-center">
-                        <a href="#" class="prev page-numbers"><i class='bx bx-chevrons-left'></i></a>
-                        <span class="page-numbers current" aria-current="page">1</span>
-                        <a href="#" class="page-numbers">2</a>
-                        <a href="#" class="page-numbers">3</a>
-                        <a href="#" class="page-numbers">4</a>
-                        <a href="#" class="next page-numbers"><i class='bx bx-chevrons-right'></i></a>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -49,11 +39,21 @@
 <script setup lang="ts">
 const props = defineProps({
   posts: {
-    type: Array,
+    type: Object,
     required: true,
   },
 });
 const { posts } = props;
+
+const formatPublishedDate = (dateString: string) => {
+  const options = { month: "short", day: "numeric", year: "numeric" };
+  const formattedDate = new Date(dateString).toLocaleDateString(
+   'sr-ME',
+    options as Intl.DateTimeFormatOptions
+  );
+  return formattedDate;
+};
+
 
 
 

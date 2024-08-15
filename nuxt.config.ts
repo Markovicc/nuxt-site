@@ -1,7 +1,16 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
 
+  runtimeConfig: {
+    
+    public: {
+      apiBase: process.env.API_URL || 'http://localhost:1337/api'
+    }
+  },
+
   devtools: { enabled: true },
+
+
 
   
  
@@ -29,11 +38,17 @@ export default defineNuxtConfig({
   modules: [
     '@bootstrap-vue-next/nuxt',
     'vue3-carousel-nuxt',
-    '@nuxtjs/strapi'
+    '@nuxtjs/strapi',
+    "@stefanobartoletti/nuxt-social-share"
   ],
 
   experimental: {
-    inlineSSRStyles: id => !id?.includes('entry')
+    inlineSSRStyles: id => !id?.includes('entry'),
+    
+  },
+  socialShare: {
+    baseUrl: 'http://localhost:3000/' // required!
+    // other optional module options
   },
 
   

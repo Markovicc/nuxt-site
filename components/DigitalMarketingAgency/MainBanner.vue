@@ -9,7 +9,7 @@
                         <h1>{{ head?.attributes?.title }}</h1>
                         <p>{{ head?.attributes?.content[0]?.children[0]?.text }}</p>
                         <div class="btn-box">
-                            <NuxtLink :to="`blog-details/${slug}`" class="default-btn"><i class="flaticon-right"></i>Opširnije<span></span></NuxtLink>
+                            <NuxtLink :to="`geoprice-content/${slug}`" class="default-btn"><i class="flaticon-right"></i>Opširnije<span></span></NuxtLink>
                         </div>
                     </div>
                 </div>

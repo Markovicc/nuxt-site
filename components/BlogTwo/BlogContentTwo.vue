@@ -17,7 +17,7 @@
               <ul
                 class="post-meta d-flex justify-content-between align-items-center"
               >
-                <li>
+                <!-- <li>
                   <div class="post-author d-flex align-items-center">
                     <img
                       :src="blog.attributes.authorImage.data.attributes.url"
@@ -26,7 +26,7 @@
                     />
                     <span>{{ blog.attributes.authorName }}</span>
                   </div>
-                </li>
+                </li> -->
                 <li>
                   <i class="flaticon-calendar"></i>
                   {{ formatPublishedDate(blog.attributes.publishedAt) }}

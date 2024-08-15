@@ -1,7 +1,7 @@
  <template>
   <div>
     <Navbar />
-    <CommonPageTitle :pageTitle="details?.attributes?.title" />
+    <!-- <CommonPageTitle :pageTitle="details?.attributes?.title" /> -->
     <BlogDetailsOneBlogDetailsContent :blogDetails="details" v-if="details" />
     <Footer />
   </div>
@@ -14,6 +14,9 @@ import { useRoute } from "vue-router";
 import Navbar from "../../layouts/Navbar.vue";
 import Footer from "../../layouts/Footer.vue";
 
+
+
+
 interface Dentist {
   id: number;
   attributes: {
@@ -21,6 +24,8 @@ interface Dentist {
   };
 }
 
+
+const apiUrl = useRuntimeConfig().public.apiBase
 
 
 
@@ -34,7 +39,7 @@ const details = ref<Dentist | null>(null);
       if (slug) {
         try {
           const response = await axios.get(
-            `http://localhost:1337/api/posts/${slug}?populate=*`
+            `${apiUrl}/posts/${slug}?populate=*`
           );
 
           details.value = response.data.data;

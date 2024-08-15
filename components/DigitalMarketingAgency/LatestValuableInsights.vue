@@ -3,16 +3,18 @@
         <div class="container">
             <div class="section-title">
                 <h2><span class="sub-title"><img src="~/assets/images/star-icon.png" alt="image" /></span>
-                    <span style="color:chocolate">Priče </span>kroz mape <span style="color: skyblue">|</span> <span style="color:chocolate">Mape </span> kroz priče<span class="overlay"></span></h2>
+                    <span style="color:chocolate">Priče </span>kroz mape <span style="color: skyblue">|</span> <span
+                        style="color:chocolate">Mape </span> kroz priče<span class="overlay"></span>
+                </h2>
                 <!-- <p> Narativi kroz korišćenje geoprostornih podataka</p> -->
             </div>
 
             <div class="row">
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6" v-for="post in posts">
                     <div class="single-blog-post bg-fffbf5">
                         <div class="post-image">
-                            <NuxtLink to="#">
-                                <img src="~/assets/images/blog/blog4.jpg" alt="image">
+                            <NuxtLink :to="`geoprice-content/${post?.attributes?.slug}`">
+                                <img :src="`${post?.attributes?.image?.data?.attributes?.url}`" alt="image">
                             </NuxtLink>
                         </div>
 
@@ -20,68 +22,24 @@
                             <ul class="post-meta d-flex justify-content-between align-items-center">
                                 <li>
                                     <div class="post-author d-flex align-items-center">
-                                        <img src="~/assets/images/user1.jpg" class="rounded-circle" alt="image">
-                                        <span>Alex Morgan</span>
+                                        <!-- <img src="~/assets/images/user1.jpg" class="rounded-circle" alt="image"> -->
+                                        <span style="color:chocolate">GEOPRIČE</span> 
                                     </div>
                                 </li>
                                 <li>
-                                    <i class='flaticon-calendar'></i> April 30, 2020
+                                    <i class='flaticon-calendar'></i>{{formatPublishedDate(post?.attributes?.publishedAt) }}
                                 </li>
                             </ul>
-                            <h3><NuxtLink to="#">Six Ways to Make Smarter Decisions</NuxtLink></h3>
+                            <h3>
+                                <NuxtLink :to="`geoprice-content/${post?.attributes?.slug}`">{{
+                                    post?.attributes?.title }}</NuxtLink>
+                            </h3>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog-post bg-fffbf5 wow fadeInUp" data-wow-delay="100ms" data-wow-duration="1500ms">
-                        <div class="post-image">
-                            <NuxtLink to="#">
-                                <img src="~/assets/images/blog/blog5.jpg" alt="image">
-                            </NuxtLink>
-                        </div>
 
-                        <div class="post-content">
-                            <ul class="post-meta d-flex justify-content-between align-items-center">
-                                <li>
-                                    <div class="post-author d-flex align-items-center">
-                                        <img src="~/assets/images/user2.jpg" class="rounded-circle" alt="image">
-                                        <span>Sarah Taylor</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <i class='flaticon-calendar'></i> April 28, 2020
-                                </li>
-                            </ul>
-                            <h3><NuxtLink to="#">The Challenges to Tackle Before You Start With AI</NuxtLink></h3>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="col-lg-4 col-md-6 offset-lg-0 offset-md-3">
-                    <div class="single-blog-post bg-fffbf5 wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
-                        <div class="post-image">
-                            <NuxtLink to="#">
-                                <img src="~/assets/images/blog/blog6.jpg" alt="image">
-                            </NuxtLink>
-                        </div>
-
-                        <div class="post-content">
-                            <ul class="post-meta d-flex justify-content-between align-items-center">
-                                <li>
-                                    <div class="post-author d-flex align-items-center">
-                                        <img src="~/assets/images/user3.jpg" class="rounded-circle" alt="image">
-                                        <span>David Warner</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <i class='flaticon-calendar'></i> April 29, 2020
-                                </li>
-                            </ul>
-                            <h3><NuxtLink to="#">Why Organisations Want an Analytics Platform</NuxtLink></h3>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
 
@@ -90,9 +48,44 @@
     </div>
 </template>
 
-<script>
+<script setup lang="ts">
+import axios from "axios";
+import { useRoute } from "vue-router";
 
-export default {
-    name: 'LatestValuableInsights'
-}
+const posts = ref([])
+
+const apiUrl = useRuntimeConfig().public.apiBase
+
+
+onMounted(async () => {
+
+    try {
+        const response = await axios.get(
+            `${apiUrl}/posts?populate=*&pagination[limit]=4&sort[0]=createdAt:desc`
+        );
+        console.log(response.data.data.slice(1, 4))
+
+        posts.value = response.data.data.slice(1, 4);
+
+
+
+        console.log('head.value')
+        console.log(posts.value)
+
+    } catch (error) {
+        console.error("Error fetching data:", error);
+    }
+
+});
+
+const formatPublishedDate = (dateString: string) => {
+  const options = { month: "short", day: "numeric", year: "numeric" };
+  const formattedDate = new Date(dateString).toLocaleDateString(
+    'sr-ME',
+    options as Intl.DateTimeFormatOptions
+  );
+  return formattedDate;
+};
+
+
 </script>

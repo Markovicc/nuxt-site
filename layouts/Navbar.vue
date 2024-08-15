@@ -19,14 +19,9 @@
                 <NuxtLink to="/" class="nav-link" exact> Naslovna </NuxtLink>
               </li>
 
+              
               <li class="nav-item">
-                <NuxtLink to="/about-us-one" class="nav-link">
-                  O sajtu
-                </NuxtLink>
-              </li>
-
-              <li class="nav-item">
-                <NuxtLink to="/blog-one" class="nav-link">
+                <NuxtLink to="/geoprice" class="nav-link">
                   Geopriče
                 </NuxtLink>
               </li>
@@ -47,20 +42,7 @@
           </b-collapse>
 
           <div class="others-option d-flex align-items-center">
-            <!-- <div class="option-item">
-              <form class="search-box">
-                <input type="text" class="input-search" placeholder="Pretraga" />
-                <button type="submit"><i class="flaticon-loupe"></i></button>
-              </form>
-            </div> -->
-
-            <!-- <div class="option-item">
-              <NuxtLink to="/contact" class="default-btn">
-                <i class="flaticon-right"></i>
-                Get Started
-                <span></span>
-              </NuxtLink>
-            </div> -->
+            
           </div>
         </nav>
       </div>
@@ -68,30 +50,15 @@
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { defineComponent, onMounted, ref } from "vue";
 import axios from "axios";
 
-interface LogoData {
-  image: {
-    data: {
-      attributes: {
-        url: string;
-      };
-    }[];
-  };
-}
+const apiUrl = useRuntimeConfig().public.apiBase
 
-export default defineComponent({
-  name: "Navbar",
-  data() {
-    return {
-      isSticky: false,
-    };
-  },
-  setup() {
-    const isSticky = ref(false);
-    const logo = ref<LogoData | null>(null);
+
+    const isSticky = ref<any>(false);
+    const logo = ref<any>(null);
 
     onMounted(async () => {
       window.addEventListener("scroll", () => {
@@ -101,7 +68,7 @@ export default defineComponent({
 
       try {
         const response = await axios.get(
-          "http://localhost:1337/api/sitelogo?populate=deep"
+          `${apiUrl}/sitelogo?populate=*`
         );
         const {
           data: { attributes },
@@ -113,10 +80,5 @@ export default defineComponent({
       }
     });
 
-    return {
-      isSticky,
-      logo,
-    };
-  },
-});
+ 
 </script>

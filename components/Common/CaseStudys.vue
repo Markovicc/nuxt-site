@@ -13,27 +13,12 @@
             <div class="single-case-study-item ptb-100">
               <div class="container">
                 <div class="row align-items-center">
-                  <div class="col-lg-4 col-md-12">
-                    <div class="case-study-content">
-                      <span class="sub-title">
-                        <img src="../../assets/images/star-icon.png" alt="image" />
-                        Infografike
-                      </span>
-                      <h3>{{ post?.attributes?.title }}</h3>
-                      <!-- <p>{{ item.description }}</p>
-                    <p>{{ item.descriptionTwo }}</p> -->
-                      <NuxtLink to="#" class="default-btn">
-                        <i class="flaticon-view"></i>
-                        <!-- {{ item.btnText }} -->
-                        <span></span>
-                      </NuxtLink>
-                    </div>
-                  </div>
+                 
 
-                  <div class="col-lg-8 col-md-12">
+                  <div class="col-lg-8 offset-lg-2 col-md-12">
                     <div class="article-image">
                       <NuxtLink to="#" class="d-block">
-                        <img :src="post?.attributes?.image?.data?.attributes?.url" alt="image" />
+                        <img :src="post?.attributes?.image?.data[0]?.attributes?.url" alt="image" />
                       </NuxtLink>
                     </div>
                   </div>
@@ -75,10 +60,12 @@ const settings = {
 
 const posts = ref<any | null>(null);
 
+const apiUrl = useRuntimeConfig().public.apiBase
+
 onMounted(async () => {
   try {
     const response = await axios.get(
-      "http://localhost:1337/api/casestudiesitems?populate=*"
+      `${apiUrl}/infografiks?populate=*&pagination[limit]=3&sort[0]=createdAt:desc`
     );
 
     posts.value = response.data.data;

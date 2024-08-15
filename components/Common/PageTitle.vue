@@ -2,11 +2,11 @@
     <div class="page-title-area">
         <div class="container">
             <div class="page-title-content">
-                <!-- <h2>{{pageTitle}}</h2> -->
-                <ul>
+                <h2>{{pageTitle}}</h2>
+                <!-- <ul>
                     <li><NuxtLink to="/">Naslovna</NuxtLink></li>
                     <li>{{pageTitle}}</li>
-                </ul>
+                </ul> -->
             </div>
         </div>
 
