@@ -195,7 +195,18 @@ onMounted( () => {
   })
 useHead(computedPageMeta);
 
+useSeoMeta({
+    title: () => details?.value?.attributes?.seo?.seoTitle,
+    twitterTitle: () => details?.value?.attributes?.seo?.seoTitle,
+    ogTitle: () => details?.value?.attributes?.seo?.seoTitle,
+    description: () => details?.value?.attributes?.seo?.seoDescription,
+    twitterDescription: () => details?.value?.attributes?.seo?.seoDescription,
+    ogDescription: () => details?.value?.attributes?.seo?.seoDescription,
+    ogImage: () => details?.value?.attributes?.image?.data?.attributes?.url,
+    twitterImage: () => details?.value?.attributes?.image?.data?.attributes?.url,
+    twitterCard: 'summary_large_image',
 
+  })
 
 })
 
