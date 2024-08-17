@@ -32,12 +32,14 @@ import { useRoute } from "vue-router";
 const head = ref({})
 const slug = ref("")
 
+const apiUrl = useRuntimeConfig().public.apiBase
+
 
 onMounted(async () => {
       
         try {
           const response = await axios.get(
-            `http://localhost:1337/api/posts?populate=*&pagination[limit]=1&sort[0]=createdAt:desc`
+            `${apiUrl}/posts?populate=*&pagination[limit]=1&sort[0]=createdAt:desc`
           );
           console.log(response.data.data[0])
 

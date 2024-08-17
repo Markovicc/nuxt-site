@@ -1,4 +1,4 @@
- <template>
+<template>
   <div>
     <Navbar />
     <!-- <CommonPageTitle :pageTitle="details?.attributes?.title" /> -->
@@ -7,7 +7,7 @@
   </div>
 </template>
 
-<script  setup lang="ts">
+<script setup lang="ts">
 import { defineComponent, onMounted, ref } from "vue";
 import axios from "axios";
 import { useRoute } from "vue-router";
@@ -30,36 +30,38 @@ const apiUrl = useRuntimeConfig().public.apiBase
 
 
 const details = ref<Dentist | null>(null);
-    
-    const route = useRoute();
 
-    onMounted(async () => {
-      const slug = route.params.id;
-      console.log(slug)
-      if (slug) {
-        try {
-          const response = await axios.get(
-            `${apiUrl}/posts/${slug}?populate=*`
-          );
+const route = useRoute();
 
-          details.value = response.data.data;
-        } catch (error) {
-          console.error("Error fetching data:", error);
-        }
-      } else {
-        console.error("Slug parameter is undefined");
-      }
+onMounted(async () => {
+  const slug = route.params.id;
+  console.log(slug)
+  if (slug) {
+    try {
+      const response = await axios.get(
+        `${apiUrl}/posts/${slug}?populate=*`
+      );
 
-      console.log('details.value')
+      details.value = response.data.data;
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  } else {
+    console.error("Slug parameter is undefined");
+  }
 
+  console.log('details.value')
 
-    console.log(details.value)
-    
-      
-    });
-
-    
 
   
+
+});
+
+console.log(details.value)
+
+  
+
+
+
 
 </script>

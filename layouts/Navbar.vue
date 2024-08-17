@@ -1,4 +1,5 @@
 <template>
+ 
   <div :class="['navbar-area', { 'is-sticky': isSticky }]">
     <div class="parix-nav">
       <div class="container-fluid">

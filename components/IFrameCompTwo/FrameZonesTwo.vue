@@ -17,29 +17,18 @@ const props = defineProps(['zone']);
 const zone = ref<any>(props.zone)
 
 
-// const getScript = () => {
-//   const flourish = document.querySelector('#zoneIDS')
-//   const plugin = document.createElement('script');
+const getScript = () => {
+  const flourish = document.querySelector('#zoneIDS')
+  const plugin = document.createElement('script');
   
   
   
-//   flourish.appendChild(plugin);
-// }
+  flourish.appendChild(plugin);
+}
 
 
 
-useHead({
-  script: [
-    {
-    src: zone.value.script,
-    // onload: () => { getScript()},
-   
-    defer: true,
-    async: true
-    }
-  ],
-  
-});
+
 
 
 onMounted( () => {

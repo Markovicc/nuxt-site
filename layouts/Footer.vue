@@ -1,5 +1,6 @@
 <template>
   <footer class="footer-area bg-color">
+    
     <div class="container">
       <div class="row" v-if="footer">
         <div class="col-lg-6 col-md-6 col-sm-6">
@@ -42,7 +43,7 @@
             <p>
               <i class="bx bx-copyright"></i>2024
               <strong>karto.rs</strong> 
-              <!-- <a target="_blank" href="https://envytheme.com/">EnvyTheme</a> -->
+             
             </p>
           </div>
 

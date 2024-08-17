@@ -1,6 +1,6 @@
 <template>
 
-
+  
   <div class="blog-details-area ptb-100">
     <div class="container">
       <div class="row">
@@ -103,7 +103,7 @@
                     <SocialShare network="facebook" />
                   </li>
                   <li >
-                    <SocialShare network="twitter" title="naslov ya teitter" />
+                    <SocialShare network="twitter" :title="details?.attributes?.title" />
                   </li>
                   <li >
                     <SocialShare network="linkedin"/>
@@ -151,6 +151,8 @@
 <script setup lang="ts">
 // import { defineComponent } from "vue";
 
+
+
 import { StrapiBlocks, type BlocksContent } from 'vue-strapi-blocks-renderer';
 
 
@@ -181,24 +183,20 @@ console.log(details?.value?.attributes?.seo?.seoTitle)
 console.log(details?.value?.attributes?.seo?.seoDescription)
 
 onMounted( () => {
-useHead({
+
+  const computedPageMeta=computed(() => {
+
+    return {
   title: details?.value?.attributes?.seo?.seoTitle ?? 'karto' ,
   meta: [{ name: "description", content: details?.value?.attributes?.seo?.seoDescription ?? 'karte i mape'}],
   
-});
+}
 
-useSeoMeta({
-  title: details?.value?.attributes?.seo?.seoTitle,
-  twitterTitle: details?.value?.attributes?.seo?.seoTitle,
-  ogTitle:  details?.value?.attributes?.seo?.seoTitle,
-  description: details?.value?.attributes?.seo?.seoDescription,
-  twitterDescription: details?.value?.attributes?.seo?.seoDescription,
-  ogDescription: details?.value?.attributes?.seo?.seoDescription,
-  ogImage: details?.value?.attributes?.image?.data?.attributes?.url,
-  twitterImage: details?.value?.attributes?.image?.data?.attributes?.url,
-  twitterCard: 'summary_large_image',
+  })
+useHead(computedPageMeta);
 
-})
+
+
 })
 
 
