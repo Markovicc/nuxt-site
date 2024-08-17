@@ -144,7 +144,9 @@ watch(details, (oldVal, newVal) => {
 
 
 
+const route = useRoute()
 
+console.log(route.fullPath)
 
 
 
@@ -174,7 +176,11 @@ useSeoMeta({
   ogDescription: () => details?.value?.attributes?.seo?.seoDescription,
   ogImage: () => details?.value?.attributes?.image?.data?.attributes?.url,
   twitterImage: () => details?.value?.attributes?.image?.data?.attributes?.url,
+  ogUrl: () => route.fullPath,
   twitterCard: 'summary_large_image',
+  ogLocale: 'sr_Latn_RS',
+  ogType: 'article',
+
 
 })
 
