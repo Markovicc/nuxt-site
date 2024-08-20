@@ -132,17 +132,6 @@ const props = defineProps({
 
 const details = ref(props.blogDetails)
 
-watch(details, (oldVal, newVal) => {
-  console.log('newVal')
-  console.log(newVal)
-})
-
-// const content: BlocksContent = details?.value?.attributes?.content
-
-// const VNode = StrapiBlocks({ content: content });
-
-
-
 
 const route = useRoute()
 
@@ -150,9 +139,6 @@ console.log(route.fullPath)
 
 
 
-console.log('seo_in_component')
-console.log(details?.value?.attributes?.seo?.seoTitle)
-console.log(details?.value?.attributes?.seo?.seoDescription)
 
 // onMounted( () => {
 
@@ -190,12 +176,6 @@ useSeoMeta({
 
 
 
-watch(() => details,
-  (newVal, oldVal) => {
-    details.value = newVal
-
-  })
-
 const content: BlocksContent = details.value.attributes.content
 
 const VNode = StrapiBlocks({ content: content });
@@ -212,9 +192,7 @@ const retContent = (cont: any) => {
   console.log('strapi_blocks')
 
   console.log(StrapiBlocks({ content: content }));
-  // console.log('vnode')
-  // console.log(VNode)
-
+  
   const richNode = StrapiBlocks({ content: content })
   return richNode
 }
@@ -230,16 +208,6 @@ const formatPublishedDate = (dateString: string) => {
   );
   return formattedDate;
 };
-
-// const route = useRoute()
-
-// watch(
-//   () => route.path,
-//   () => {
-//     console.log('route')
-//     console.log(route.value.path)
-//   },
-// );
 
 
 

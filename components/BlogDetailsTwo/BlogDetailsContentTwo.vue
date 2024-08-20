@@ -5,26 +5,11 @@
         <div class="col-lg-12 col-md-12 ">
           <div class="blog-details-desc">
 
-            <!-- <div class="article-image">
-              <img :src="details?.attributes?.image?.data?.attributes?.url" alt="image" />
-            </div> -->
 
             <div class="article-content">
               <div class="entry-meta">
                 <ul>
-                  <!-- <li>
-                    <img
-                      :src="
-                        details?.attributes?.authorImage?.data?.attributes?.url
-                      "
-                      class="rounded-circle"
-                      alt="image"
-                    />
-                    <span>Author</span>
-                    <NuxtLink to="/blog-two">
-                      {{ details?.attributes?.Author }}
-                    </NuxtLink>
-                  </li> -->
+
                   <li>
                     <i class="bx bx-calendar"></i>
                     <span>Objavljeno</span>
@@ -36,48 +21,37 @@
               </div>
 
               <h3>{{ details?.attributes?.title }}</h3>
-              <!-- <StrapiBlocks v-if="details" :content="details?.attributes?.content" /> -->
 
-              <!-- <VNode /> -->
 
-              
 
-              <div class="row" v-for="zone in details?.attributes?.iframe" >
-                
+              <div class="row" v-for="zone in details?.attributes?.iframe">
+
                 <div class="col-lg-12 col-md-12" v-if="zone.__component === 'posts.iframe'">
 
                   <div>
-                  <IFrameCompTwoFrameZonesTwo  v-if="zone.script" :zone="zone" />
+                    <IFrameCompTwoFrameZonesTwo v-if="zone.script" :zone="zone" />
+                  </div>
+
+                  <div v-if="zone.code" v-html="zone.code">
+
+                  </div>
+
+
+
                 </div>
 
-                <div v-if="zone.code" v-html="zone.code">
-
-                </div>
-
-
-
-                </div>
-
-                  <div class="col-lg-8 offset-lg-2 col-md-8 offset-md-2">
-                  <RichTextCompRichText v-if="zone.__component === 'posts.rich-text'"
-                    :vnodes="retContent(zone.content)" />
-                </div>
-              
+                
               </div>
 
 
 
 
 
-              <!-- <span v-html="details?.attributes?.richText"></span> -->
+
             </div>
 
             <div class="article-footer">
-              <!-- <div class="article-tags">
-                <span><i class="bx bx-purchase-tag"></i></span>
 
-                <a v-for="tag in details?.attributes?.tags?.data" href="#">{{ tag.attributes.name }}<span></span></a>
-              </div> -->
 
               <div class="article-share">
                 <ul class="social">
@@ -108,9 +82,7 @@
           </div>
         </div>
 
-        <!-- <div class="col-lg-4 col-md-12">
-          <BlogFourBlogSidebar />
-        </div> -->
+
       </div>
     </div>
   </div>
@@ -119,7 +91,9 @@
 <script setup lang="ts">
 // import { defineComponent } from "vue";
 
-// import { StrapiBlocks, type BlocksContent } from 'vue-strapi-blocks-renderer';
+
+
+import { StrapiBlocks, type BlocksContent } from 'vue-strapi-blocks-renderer';
 
 
 
@@ -133,53 +107,47 @@ const props = defineProps({
 
 const details = ref(props.blogDetails)
 
+console.log('details: ', details.value)
 
-useHead({
-  title: details?.value?.attributes?.seo?.seoTitle,
-  meta: [{ name: "description", content: details?.value?.attributes?.seo?.seoDescription }],
-});
+const route = useRoute()
 
-
-// const content: BlocksContent = details?.value?.attributes?.content
-
-// const VNode = StrapiBlocks({ content: content });
-
-
-
-console.log('seo_in_component')
-console.log(details.value.attributes.seo.seoTitle)
-console.log(details.value.attributes.seo.seoDescription)
+console.log(route.fullPath)
 
 
 
 
+// onMounted( () => {
 
 
+const computedPageMeta = computed(() => {
+
+  return {
+    title: details?.value?.attributes?.seo?.seoTitle ?? 'karto',
+    meta: [{ name: "description", content: details?.value?.attributes?.seo?.seoDescription ?? 'karte i mape' }],
+
+  }
+
+})
+useHead(computedPageMeta);
+
+useSeoMeta({
+  title: () => details?.value?.attributes?.seo?.seoTitle,
+  twitterTitle: () => details?.value?.attributes?.seo?.seoTitle,
+  ogTitle: () => details?.value?.attributes?.seo?.seoTitle,
+  description: () => details?.value?.attributes?.seo?.seoDescription,
+  twitterDescription: () => details?.value?.attributes?.seo?.seoDescription,
+  ogDescription: () => details?.value?.attributes?.seo?.seoDescription,
+  ogImage: () => details?.value?.attributes?.image?.data[0]?.attributes?.url,
+  twitterImage: () => details?.value?.attributes?.image?.data[0]?.attributes?.url,
+  ogUrl: () => route.fullPath,
+  twitterCard: 'summary_large_image',
+  ogLocale: 'sr_Latn_RS',
+  ogType: 'article',
 
 
-watch(() => details,
-  (newVal, oldVal) => {
-    details.value = newVal
+})
 
-  })
-
-// const content: BlocksContent = details.value.attributes.content
-
-// const VNode = StrapiBlocks({ content: content });
-
-
-
-
-
-
-
-// if (details) {
-//   const content: BlocksContent = details?.value?.attributes?.content
-
-//   const VNode = StrapiBlocks({ content: content });}
-
-
-
+// })
 
 
 
@@ -191,8 +159,6 @@ const formatPublishedDate = (dateString: string) => {
   );
   return formattedDate;
 };
-
-
 
 
 

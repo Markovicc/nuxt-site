@@ -2,7 +2,7 @@
     <div>
         <Navbar />
         <!-- <CommonPageTitle :pageTitle="details?.attributes?.title" /> -->
-        <BlogDetailsTwoBlogDetailsContentTwo :blogDetails="details" v-if="details" />
+        <BlogDetailsTwoBlogDetailsContentTwo :blogDetails="details" />
         <Footer />
     </div>
 </template>
@@ -14,30 +14,23 @@ import { useRoute } from "vue-router";
 import Navbar from "../../layouts/Navbar.vue";
 import Footer from "../../layouts/Footer.vue";
 
-interface Dentist {
-    id: number;
-    attributes: {
-        title: string;
-    };
-}
 
 
 const apiUrl = useRuntimeConfig().public.apiBase
 
-const details = ref<Dentist | null>(null);
+const details = ref<any>({})
 
 const route = useRoute();
 
-onMounted(async () => {
     const slug = route.params.id;
     console.log(slug)
     if (slug) {
         try {
-            const response = await axios.get(
+            const {'data': data } = await useFetch(
                 `${apiUrl}/interaktivs/${slug}?populate=*`
             );
 
-            details.value = response.data.data;
+            details.value = data.value.data;
         } catch (error) {
             console.error("Error fetching data:", error);
         }
@@ -51,7 +44,7 @@ onMounted(async () => {
     console.log(details.value)
 
 
-});
+
 
 
 
