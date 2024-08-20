@@ -35,32 +35,22 @@ const slug = ref("")
 const apiUrl = useRuntimeConfig().public.apiBase
 
 
-onMounted(async () => {
+
       
         try {
-          const response = await axios.get(
+          const {'data': data} = await useFetch(
             `${apiUrl}/posts?populate=*&pagination[limit]=1&sort[0]=createdAt:desc`
           );
-          console.log(response.data.data[0])
+          
 
-          head.value = response.data.data[0];
+          head.value = data.value.data[0];
 
           slug.value = head.value.attributes.slug
 
-          console.log('head.value')
-          console.log(head.value)
-
+         
         } catch (error) {
           console.error("Error fetching data:", error);
         }
       
-     
-
-
-    
-    
-      
-    });
-
-
+   
 </script>

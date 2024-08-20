@@ -40,7 +40,7 @@
 
               <div class="row" v-for="zone in details?.attributes?.iframeZone">
 
-                <div class="col-lg-12 col-md-12">
+                <div class="col-lg-10 offset-lg-1 col-md-12">
                   <IFrameCompFrameZones v-if="zone.__component === 'posts.iframe'" :zone="zone"
                     :key="Math.random() * 100" />
                 </div>
@@ -171,6 +171,7 @@ useSeoMeta({
 })
 
 // })
+
 
 
 

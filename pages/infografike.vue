@@ -38,7 +38,7 @@ const serverCall = async () =>
 {
   try {
     const response = await axios.get(
-      `${apiUrl}/infografiks?populate=*&pagination[pageSize]=10&pagination[page]=${currentPage.value}`
+      `${apiUrl}/infografiks?populate=*&sort[0]=createdAt:desc&pagination[pageSize]=10&pagination[page]=${currentPage.value}`
     );
 
     postsCount.value = response.data.meta.pagination.total

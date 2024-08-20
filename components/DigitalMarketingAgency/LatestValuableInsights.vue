@@ -57,26 +57,23 @@ const posts = ref([])
 const apiUrl = useRuntimeConfig().public.apiBase
 
 
-onMounted(async () => {
 
     try {
-        const response = await axios.get(
-            `${apiUrl}/posts?populate=*&pagination[limit]=4&sort[0]=createdAt:desc`
+        const {'data': data } = await useFetch(
+            `${apiUrl}/posts?populate=*&sort[0]=createdAt:desc&pagination[limit]=7`
         );
-        console.log(response.data.data.slice(1, 4))
+        
 
-        posts.value = response.data.data.slice(1, 4);
+        posts.value = data.value.data.slice(1, 7);
 
 
 
-        console.log('head.value')
-        console.log(posts.value)
 
     } catch (error) {
         console.error("Error fetching data:", error);
     }
 
-});
+
 
 const formatPublishedDate = (dateString: string) => {
   const options = { month: "short", day: "numeric", year: "numeric" };

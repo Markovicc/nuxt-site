@@ -32,6 +32,7 @@ const route = useRoute();
 
 
   const slug = route.params.id;
+  
  
   if (slug) {
     try {

@@ -36,16 +36,13 @@ const route = useRoute();
 const serverCall = async () => 
 {
   try {
-    const response = await axios.get(
+    const {'data': data } = await useFetch(
       `${apiUrl}/interaktivs?populate=*&pagination[pageSize]=10&pagination[page]=${currentPage.value}`
     );
 
-    postsCount.value = response.data.meta.pagination.total
+    postsCount.value = data.value.data.meta.pagination.total
 
-    console.log('postsCount.value')
-    console.log(postsCount.value)
-
-    const titles = response.data.data
+    const titles =data.value.data
 
     const postApi = <any>[]
 
@@ -83,10 +80,6 @@ const onClickHandler = () => {
   console.log(currentPage.value);
   serverCall()
   
-  console.log('posts')
-  console.log(posts.value)
-
-
 
   
 
