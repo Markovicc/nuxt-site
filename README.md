@@ -2,6 +2,56 @@
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
+## GitHub CLI (Local Usage)
+
+Yes, you can use [GitHub CLI](https://cli.github.com/) locally on your computer to work with this repository.
+
+### Install GitHub CLI
+
+Follow the [official installation guide](https://cli.github.com/) for your operating system:
+
+```bash
+# macOS (Homebrew)
+brew install gh
+
+# Windows (winget)
+winget install --id GitHub.cli
+
+# Linux (apt)
+sudo apt install gh
+```
+
+### Authenticate
+
+```bash
+gh auth login
+```
+
+### Clone This Repository
+
+```bash
+gh repo clone Markovicc/nuxt-site
+```
+
+### Useful GitHub CLI Commands
+
+```bash
+# List open issues
+gh issue list
+
+# Create a new issue
+gh issue create
+
+# List pull requests
+gh pr list
+
+# Create a pull request
+gh pr create
+
+# Check CI status
+gh run list
+```
+
 ## Setup
 
 Make sure to install the dependencies:
