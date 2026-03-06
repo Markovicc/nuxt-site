@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
 
   runtimeConfig: {
-    
+    openaiApiKey: process.env.OPENAI_API_KEY || '',
     public: {
       apiBase: process.env.API_URL || 'http://localhost:1337/api'
     }
